@@ -3,131 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ titulo }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+    <title>Missão Artemis x Winx</title>
     <style>
-        /* CSS Básico integrado para visualização rápida */
+        /* 1. Configuração do Fundo Desfocado */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #5e2a84; /* Roxo escuro para leitura */
+            min-height: 100vh;
+            background: url("{{ url_for('static', filename='fundo.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
         }
+
+        /* Camada de desfoque sobre o fundo */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.3); /* Filtro claro para destacar o texto */
+            backdrop-filter: blur(8px); /* O desfoque que você pediu */
+            z-index: -1;
+        }
+
+        /* 2. Estilo Winx (Cores e Bordas) */
         header {
-            background: #003366; /* Azul NASA */
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 2rem 0;
-        }
-        section {
-            background: #fff;
+            background: linear-gradient(45deg, #ff85e1, #c471ed, #f64f59);
+            color: white;
             padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #003366;
-            border-bottom: 2px solid #003366;
-            padding-bottom: 0.5rem;
-        }
-        .imagem-container {
             text-align: center;
-            margin: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+            border-bottom: 5px solid #fff;
         }
+
+        h1 {
+            text-shadow: 2px 2px #ff00ff;
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        /* Estilo dos Cards/Seções */
+        section {
+            background: rgba(255, 255, 255, 0.85); /* Fundo semi-transparente */
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-radius: 30px; /* Bordas bem arredondadas e mágicas */
+            border: 3px solid #ffb6c1;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: scale(1.02); /* Efeito de flutuação */
+            border-color: #ff69b4;
+        }
+
+        h2 {
+            color: #d1127e;
+            text-align: center;
+            border-bottom: 2px dotted #ffb6c1;
+            padding-bottom: 10px;
+        }
+
+        /* 3. Imagens com moldura mágica */
         .imagem-site {
+            display: block;
             max-width: 100%;
             height: auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin: 0 auto;
+            border-radius: 20px;
+            border: 5px solid #fff;
+            outline: 3px solid #ffb6c1;
         }
+
         .legenda {
-            font-style: italic;
-            color: #666;
-            margin-top: 0.5rem;
-        }
-        footer {
-            background: #333;
-            color: #fff;
             text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
+            font-weight: bold;
+            color: #c471ed;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.5);
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <h1>{{ titulo }}</h1>
-        </div>
+        <h1>✨ Missão Artemis: Magia Lunar ✨</h1>
     </header>
 
     <div class="container">
-        
-        <section id="sobre">
-            <h2>Sobre a Missão</h2>
-            <p>A Missão Artemis é um programa de voo espacial tripulado liderado pela NASA, com o objetivo de restabelecer a presença humana na Lua, especificamente na região do Polo Sul lunar, pela primeira vez desde a missão Apollo 17 em 1972.</p>
-            <p>O programa pretende levar a primeira mulher e a próxima pessoa de cor à superfície lunar, utilizando tecnologias inovadoras para explorar mais da superfície lunar do que nunca.</p>
+        <section>
+            <h2>🧚 A Tripulação Mágica</h2>
+            <img src="{{ url_for('static', filename='artemis.jpg') }}" class="imagem-site">
+            <p class="legenda">As fadas (e especialistas) que vão conquistar a Lua!</p>
+            <p>Assim como as Winx protegem Magix, nossa equipe Artemis embarca em uma jornada estelar para proteger o futuro da exploração humana.</p>
         </section>
 
-        <section id="equipe">
-            <h2>A Equipe (Artemis II)</h2>
-            <p>Estes são os quatro astronautas selecionados para a missão Artemis II, que realizará um voo tripulado ao redor da Lua.</p>
-            <div class="imagem-container">
-                <img src="/static/artemis.jpg" alt="Retrato da tripulação da Missão Artemis II em trajes de voo laranja" class="imagem-site">
-                <p class="legenda">Tripulação da Artemis II (da esquerda para a direita): Christina Hammock Koch, Victor Glover, Reid Wiseman e Jeremy Hansen. (Imagem: NASA/Wikipedia)</p>
-            </div>
+        <section>
+            <h2>🌈 Caminho das Estrelas (Rota)</h2>
+            <img src="{{ url_for('static', filename='circuito.png') }}" class="imagem-site">
+            <p class="legenda">O rastro de pó de fada pelo espaço.</p>
+            <p>O trajeto do foguete desenha um arco brilhante ligando a Terra à Lua, guiado por tecnologia e coragem.</p>
         </section>
 
-        <section id="rota">
-            <h2>Rota e Trajetória da Missão</h2>
-            <p>Abaixo está o mapa detalhado da trajetória que a nave Orion seguirá durante a missão Artemis II, desde o lançamento na Terra, passando pela órbita lunar e retornando para o pouso no Oceano Pacífico.</p>
-            <div class="imagem-container">
-                <img src="/static/circuito.png" alt="Mapa da trajetória de voo da missão Artemis II mostrando a Terra e a Lua" class="imagem-site">
-                <p class="legenda">Mapa oficial da trajetória de voo da Missão Artemis II. (Imagem: NASA)</p>
-            </div>
-        
-            <section id="foguete">
-                <h2>O Foguete: Space Launch System (SLS)</h2>
-                <p>O SLS é o foguete mais poderoso já construído pela NASA. Ele foi projetado para enviar a nave Orion e cargas pesadas diretamente para a Lua em uma única missão, gerando um empuxo incrível no lançamento.</p>
-                <div class="imagem-container">
-                    <img src="{{ url_for('static', filename='foguete.jpg') }}" alt="Foguete SLS no lançamento" class="imagem-site">
-                    <p class="legenda">O SLS é a espinha dorsal da exploração do espaço profundo da NASA.</p>
-                </div>
+        <section>
+            <h2>🚀 Poder SLS: Brilho Máximo</h2>
+            <img src="{{ url_for('static', filename='foguete.jpg') }}" class="imagem-site">
+            <p>O foguete SLS é o nosso Dragão de Fogo! Com força total, ele rompe a atmosfera para levar o sonho de Magix até o Polo Sul lunar.</p>
         </section>
-            
-            <section id="orion">
-                <h2>Cápsula Orion</h2>
-                <p>A Orion é a nave que servirá de casa para os astronautas durante a viagem. Ela possui sistemas de suporte de vida de última geração e o escudo térmico mais avançado do mundo para proteger a tripulação na reentrada na Terra.</p>
-                <div class="imagem-container">
-                    <img src="/static/capsula.jpg" alt="Nave espacial Orion" class="imagem-site">
-                    <p class="legenda">A Orion pode acomodar até quatro astronautas por 21 dias no espaço.</p>
-                </div>
-        </section>
-            
-        <section id="pouso">
-                <h2>Destino: Polo Sul Lunar</h2>
-                <p>Diferente das missões Apollo, a Artemis mira o Polo Sul da Lua. Lá, os cientistas acreditam que existe gelo de água em crateras permanentemente sombreadas, o que será vital para futuras bases lunares.</p>
-                <div class="imagem-container">
-                    <img src="/static/pouso.jpg" alt="Superfície do Polo Sul da Lua" class="imagem-site">
-                    <p class="legenda">Explorar o gelo lunar ajudará os humanos a chegarem até Marte no futuro.</p>
-                </div>
-            </section>
-        </section>
-
     </div>
 
     <footer>
-        <p>&copy; 2026 - Nicolas Coelho da Silva - Site Educativo sobre a Missão Artemis. Imagens: NASA.</p>
+        <p>Criado com magia, Python e o poder das Winx! 💖</p>
     </footer>
 
 </body>
